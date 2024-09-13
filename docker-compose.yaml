@@ -1,0 +1,13 @@
+services:
+  webserver:
+    image: nginx:1.27
+    ports:
+      - "80:80"
+    volumes:
+    - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    - ./app:/app
+
+  php:
+    image: php:fpm
+    volumes:
+      - ./app:/app
